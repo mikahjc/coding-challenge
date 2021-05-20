@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{employee.getFirstName()}} {{employee.getLastName()}}</h5>
+        <div class="card-text">
+            <h6 *ngIf="employee.getDependents().length > 0">Dependents:</h6>
+            <p *ngFor="let dependent of employee.getDependents()">{{dependent.getFirstName()}} {{dependent.getLastName()}}</p>
+            <p>Total monthly deduction: {{getMonthlyDeduction() | currency}}</p>
+            <p>Take-home pay: {{getTakeHomePay() | currency}}</p>
+        </div>
+    </div>
+</div>
