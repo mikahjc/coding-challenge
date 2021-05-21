@@ -1,11 +1,27 @@
-<div class="card">
+<div class="card m-2">
     <div class="card-body">
         <h5 class="card-title">{{employee.getFirstName()}} {{employee.getLastName()}}</h5>
         <div class="card-text">
-            <h6 *ngIf="employee.getDependents().length > 0">Dependents:</h6>
-            <p *ngFor="let dependent of employee.getDependents()">{{dependent.getFirstName()}} {{dependent.getLastName()}}</p>
-            <p>Total monthly deduction: {{getMonthlyDeduction() | currency}}</p>
-            <p>Take-home pay: {{getTakeHomePay() | currency}}</p>
+            <div class="list-group mb-2" *ngIf="employee.getDependents().length > 0">
+                <div class="list-group-item list-group-item-secondary">Dependents:</div>
+                <div class="list-group-item" *ngFor="let dependent of employee.getDependents()">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <div>{{dependent.getFirstName()}} {{dependent.getLastName()}}</div>
+                        <button class="btn btn-outline-danger" (click)="removeDependent(dependent)">&times;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div>Total monthly deduction:</div>
+                <div class="font-weight-bold">{{getMonthlyDeduction() | currency}}</div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div>Take-home pay:</div>
+                <div class="font-weight-bold">{{getTakeHomePay() | currency}}</div>
+            </div>
         </div>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary" (click)="openModal()">Add Dependent</button>
     </div>
 </div>

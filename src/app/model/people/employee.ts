@@ -7,6 +7,13 @@ export class Employee extends Person {
     addDependent(dependent: Person) {
         this.dependents.push(dependent)
     }
+    removeDependent(dependent: Person) {
+        const index = this.dependents.indexOf(dependent)
+        console.log(index)
+        if (index >= 0) {
+            this.dependents.splice(index, 1)
+        }
+    }
     getDependents(): Person[] {
         return this.dependents
     }

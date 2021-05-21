@@ -1,0 +1,13 @@
+<div class="d-flex container">
+    <app-employee-view *ngFor="let employee of employees" [employee]="employee"></app-employee-view>
+    <a (click)="openModal()">
+    <div class="card m-2">
+      <div class="card-body">
+        <div class="card-text text-center">
+          <h1>+</h1>
+          Add new employee
+        </div>
+      </div>
+    </div>
+    </a>
+  </div>
