@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Employee } from '../model/people/employee';
 
 import { EmployeeViewComponent } from './employee-view.component';
 
@@ -16,6 +17,7 @@ describe('EmployeeViewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EmployeeViewComponent);
     component = fixture.componentInstance;
+    component.employee = new Employee('first', 'last')
     fixture.detectChanges();
   });
 

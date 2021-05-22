@@ -38,14 +38,26 @@ export class PayrollDeductionService {
     this.discounts.push(newDiscount)
   }
 
+  getEmployeeAnnualBenefitsCost(): number {
+    return this.employeeAnnualBenefitsCost
+  }
+
   setEmployeeAnnualBenefitsCost(newCost: number) {
     this.employeeAnnualBenefitsCost = newCost
+  }
+
+  getDependentAnnualBenefitsCost(): number {
+    return this.dependentAnnualBenefitsCost
   }
 
   setDependentAnnualBenefitsCost(newCost: number) {
     this.dependentAnnualBenefitsCost = newCost
   }
 
+  getPaychecksPerYear(): number {
+    return this.paychecksPerYear
+  }
+  
   setPaychecksPerYear(numOfPaychecks: number) {
     this.paychecksPerYear = numOfPaychecks
   }

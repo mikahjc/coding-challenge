@@ -1,5 +1,28 @@
 <nav class="navbar navbar-light bg-light">
   <a href="#" class="navbar-brand">Benefits</a>
-  <button type="button" class="btn btn-primary">Configure Payroll Deductions</button>
+  <button type="button" class="btn btn-primary" (click)="openConfig(config)">Configure Payroll Deductions</button>
 </nav>
 <app-employee-management></app-employee-management>
+<ng-template #config let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title">Configure Payroll</h4>
+      <button type="button" class="close" (click)="modal.dismiss('cross-click')">&times;</button>
+  </div>
+  <div class="modal-body">
+      <div class="form-group">
+          <label for="newFirstName">Annual cost for employee benefits</label>
+          <input type="number" class="form-control" id="newFirstName" [(ngModel)]="employeeDeductionCost">
+      </div>
+      <div class="form-group">
+          <label for="newLastName">Annual cost for dependent benefits</label>
+          <input type="number" class="form-control" id="newLastName" [(ngModel)]="dependentDeductionCost">
+      </div>
+      <div class="form-group">
+        <label for="newLastName">Paychecks per year</label>
+        <input type="number" class="form-control" id="newLastName" [(ngModel)]="paychecks">
+    </div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="modal.close('save')">Save</button>
+  </div>
+</ng-template>

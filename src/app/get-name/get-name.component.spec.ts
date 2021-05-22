@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { GetNameComponent } from './get-name.component';
 
@@ -8,7 +9,9 @@ describe('GetNameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetNameComponent ]
+      imports: [NgbModule],
+      declarations: [ GetNameComponent ],
+      providers: [NgbActiveModal]
     })
     .compileComponents();
   });
